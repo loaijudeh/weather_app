@@ -1,9 +1,31 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  // await requestPage();
   runApp(MyApp());
 }
+
+Future<void> requestPage() async {
+  String url =
+      'https://api.openweathermap.org/data/2.5/weather?q=damascus&appid=a1e001fb029a5b08f4280c4c7a93994c';
+  try {
+    var response = await Dio().get(url);
+    print(response);
+  } catch (e) {
+    print(e);
+  }
+}
+
+// int? printNumber({int? x1, int? number2}) {
+//   try {z
+//     return x1! + number2!;
+//   } catch (exception) {
+//     print(exception);
+//     return 0;
+//   }
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({
